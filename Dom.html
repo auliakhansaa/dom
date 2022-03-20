@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Bangun Ruang</title>
+</head>
+<body>
+
+    <h1 class="paragraf">
+       Hallo, Selamat datang di Kalkulator Bangun
+    </h1>
+
+    <div class="app"></div>
+
+
+    <label>Luas Alas</label>
+    <input type="number" class="angka-pertama">
+    
+    <br>
+
+    <label>Tinggi</label>
+    <input type="number" class="angka-kedua">
+
+    <br>
+
+    <button class="tombol-balok">Balok</button>
+    <button class="tombol-kubus">Kubus</button>
+    <button class="tombol-kerucut">Kerucut</button>
+    <button class="tombol-tabung">Tabung</button>
+    <button class="tombol-p3">Prisma Segitiga</button>
+    <button class="tombol-l3">Limas Segitiga</button>
+    <button class="tombol-p4">Prisma Segiempat</button>
+    <button class="tombol-l4">Limas Segiempat</button>
+
+
+    <p class="hasil"></p>
+
+    <script>
+        // Element input angka
+        const elementAngkaPertama = document.querySelector('.angka-pertama');
+        const elementAngkaKedua = document.querySelector('.angka-kedua');
+
+        // Element tombol
+        const elementTombolTambah = document.querySelector('.tombol-balok');
+        const elementTombolKurang = document.querySelector('.tombol-kurang');
+        const elementTombolKali = document.querySelector('.tombol-kali');
+        const elementTombolBagi = document.querySelector('.tombol-bagi');
+
+        // Element hasil
+        const elementHasil = document.querySelector('.hasil');
+
+        elementTombolTambah.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+
+            const hasil = nilaiAngkaPertama + nilaiAngkaKedua;
+            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+        });
+
+        elementTombolKurang.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+
+            const hasil = nilaiAngkaPertama - nilaiAngkaKedua;
+            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+        });
+
+        elementTombolKali.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+
+            const hasil = nilaiAngkaPertama * nilaiAngkaKedua;
+            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+        });
+
+        elementTombolBagi.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+
+            const hasil = nilaiAngkaPertama / nilaiAngkaKedua;
+            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+        });
+
+
+        const app = document.querySelector(".app");
+        app.textContent = "Ini Judul dari JavaScript";
+        app.style.color = "violet";
+        app.style.padding = "24px";
+        app.style.marginTop = "2px";
+
+        document.body.append(app);
+
+        app.style.backgroundColor = "red";
+
+        // const banyakParagraf = document.querySelectorAll(".paragraf");
+        // banyakParagraf.forEach(function(paragraf) {
+        //     paragraf.style.color = 'blue';
+        // });
+
+        // setTimeout(function() {
+        //     const banyakParagraf = document.querySelectorAll(".paragraf");
+        //     banyakParagraf.remove();
+        // }, 5000);
+
+
+
+        const banyakParagraf = document.querySelectorAll(".paragraf");
+        setInterval(function() {
+            banyakParagraf[0].style.color = 'red';
+
+            setTimeout(function() {
+                banyakParagraf[0].style.color = 'black';
+            }, 500); // 500 = 0.5 detik
+        }, 1000); // 1000 = 1 detik
+
+    </script>
+</body>
+</html>
