@@ -6,10 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Bangun Ruang</title>
 </head>
+<style>
+    .container{
+        width: 500px;
+        margin: auto;
+        border: 2px dashed pink;
+        padding: 20px;
+    }
+    button{
+        margin-top:20px;
+    }
+    h1{
+        text-align: center;
+        border: 1px dotted green;
+    }
+</style>
 <body>
-
+<div class="container">
     <h1 class="paragraf">
-       Hallo, Selamat datang di Kalkulator Bangun
+       Hallo, Selamat datang di Kalkulator Volume Bangun
     </h1>
 
     <div class="app"></div>
@@ -37,62 +52,113 @@
 
     <p class="hasil"></p>
 
+    <img class="image" width="160" height="120">
+    
+
     <script>
         // Element input angka
         const elementAngkaPertama = document.querySelector('.angka-pertama');
         const elementAngkaKedua = document.querySelector('.angka-kedua');
 
         // Element tombol
-        const elementTombolTambah = document.querySelector('.tombol-balok');
-        const elementTombolKurang = document.querySelector('.tombol-kurang');
-        const elementTombolKali = document.querySelector('.tombol-kali');
-        const elementTombolBagi = document.querySelector('.tombol-bagi');
+        const elementTombolBalok = document.querySelector('.tombol-balok');
+        const elementTombolKubus = document.querySelector('.tombol-kubus');
+        const elementTombolKerucut = document.querySelector('.tombol-kerucut');
+        const elementTombolTabung = document.querySelector('.tombol-tabung');
+        const elementTombolP3 = document.querySelector('.tombol-p3');
+        const elementTombolL3 = document.querySelector('.tombol-l3');
+        const elementTombolP4 = document.querySelector('.tombol-p4');
+        const elementTombolL4 = document.querySelector('.tombol-l4');
 
         // Element hasil
         const elementHasil = document.querySelector('.hasil');
 
-        elementTombolTambah.addEventListener('click', function() {
+
+        const image = document.querySelector('.image');
+
+        elementTombolBalok.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua;
+            elementHasil.textContent = `Volume Balok adalah = ${hasil}`;
+            document.querySelector(".image").src="balok.png";
+            // image.src= 'kerucut.jpeg';
+            // elementTombolBalok.appendChild(image);
+            
+        });
+
+        elementTombolKubus.addEventListener('click', function() {
             const nilaiAngkaPertama = Number(elementAngkaPertama.value);
             const nilaiAngkaKedua = Number(elementAngkaKedua.value);
 
-            const hasil = nilaiAngkaPertama + nilaiAngkaKedua;
-            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua;
+            elementHasil.textContent = `Volume kubus adalah = ${hasil}`;
+            document.querySelector(".image").src="kubus.jpeg";
         });
 
-        elementTombolKurang.addEventListener('click', function() {
+        elementTombolTabung.addEventListener('click', function() {
             const nilaiAngkaPertama = Number(elementAngkaPertama.value);
             const nilaiAngkaKedua = Number(elementAngkaKedua.value);
 
-            const hasil = nilaiAngkaPertama - nilaiAngkaKedua;
-            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua;
+            elementHasil.textContent = `Volume Tabung adalah = ${hasil}`;
+            document.querySelector(".image").src="tabung.png";
         });
 
-        elementTombolKali.addEventListener('click', function() {
+        elementTombolP3.addEventListener('click', function() {
             const nilaiAngkaPertama = Number(elementAngkaPertama.value);
             const nilaiAngkaKedua = Number(elementAngkaKedua.value);
 
-            const hasil = nilaiAngkaPertama * nilaiAngkaKedua;
-            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua;
+            elementHasil.textContent = `Volume Prisma Segi Tiga adalah = ${hasil}`;
+            document.querySelector(".image").src="p3.jpeg";
         });
 
-        elementTombolBagi.addEventListener('click', function() {
+
+        elementTombolP4.addEventListener('click', function() {
             const nilaiAngkaPertama = Number(elementAngkaPertama.value);
             const nilaiAngkaKedua = Number(elementAngkaKedua.value);
 
-            const hasil = nilaiAngkaPertama / nilaiAngkaKedua;
-            elementHasil.textContent = `Hasilnya adalah = ${hasil}`;
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua;
+            elementHasil.textContent = `Volume Prisma Segi Empat adalah = ${hasil}`;
+            document.querySelector(".image").src="p4.jpeg";
+        });
+        
+        elementTombolL4.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua/3;
+            elementHasil.textContent = `Volume Limas Segi empat adalah = ${hasil}`;
+            document.querySelector(".image").src="l4.jpeg";
+        });
+        elementTombolL3.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua/3;
+            elementHasil.textContent = `Volume Limas Segitiga adalah = ${hasil}`;
+            document.querySelector(".image").src="l3.jpeg";
+        }); 
+        elementTombolKerucut.addEventListener('click', function() {
+            const nilaiAngkaPertama = Number(elementAngkaPertama.value);
+            const nilaiAngkaKedua = Number(elementAngkaKedua.value);
+
+            const hasil = nilaiAngkaPertama*nilaiAngkaKedua/3;
+            elementHasil.textContent = `Volume Kerucut adalah = ${hasil}`;
+            document.querySelector(".image").src="kerucut.jpeg";
         });
 
+        
 
-        const app = document.querySelector(".app");
-        app.textContent = "Ini Judul dari JavaScript";
-        app.style.color = "violet";
-        app.style.padding = "24px";
-        app.style.marginTop = "2px";
+        // const app = document.querySelector(".app");
+        // app.textContent = "Ini Judul dari JavaScript";
+        // app.style.color = "violet";
+        // app.style.padding = "24px";
+        // app.style.marginTop = "2px";
 
-        document.body.append(app);
+        // document.body.append(app);
 
-        app.style.backgroundColor = "red";
+        // app.style.backgroundColor = "red";
 
         // const banyakParagraf = document.querySelectorAll(".paragraf");
         // banyakParagraf.forEach(function(paragraf) {
@@ -116,5 +182,7 @@
         }, 1000); // 1000 = 1 detik
 
     </script>
+
+</div>
 </body>
 </html>
